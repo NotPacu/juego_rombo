@@ -115,5 +115,33 @@ bool continuar_turno();
 
 // en caso de consultar o continuar turno reciba una X 
 // 'juego_activo' debe tomar una valor de False
-
 ```
+## Menú
+El menú debe preguntar la información básica antes de iniciar a jugar de forma grafica .
+### Metodos
+``` c++
+struct info{
+	int jugadores;
+	string* nombres;
+	// otra informacion que sea necesaria
+	
+	void preguntar_info();
+	info retornar_info();
+}
+```
+
+## Registrador
+El encargado de cargar y guardar partidas
+### Metodos
+``` c++
+
+void guardar(tablero* tab,jugadores* jug);
+jugadores* cargar_jugadores();
+tablero* cargar_tablero();
+string* listar_partidas();
+```
+
+
+## Controlador
+El controlador debe implementar la función `main`, es el encargado de implementar todas las clases.
+
