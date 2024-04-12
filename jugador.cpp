@@ -14,5 +14,4 @@ class Jugador {
 		void forzar_turno_perdido();
 };
 
-
-c
+Jugador::
