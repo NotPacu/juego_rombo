@@ -14,8 +14,8 @@ Para identificar cada ficha
 
 ### Metodos
 ``` c++
-tablero* retornar_tablero()
-int* retornar_columna(int columna)
+tablero* retornar_tablero();
+int* retornar_columna(int columna);
 int mover_ficha(int jugador_id,int movimiento_1,movimiento_2)
 // mover ficha retorna cuantos puntos gana en esa tirada,
 // en caso de no coronar ninguna ficha retorna 0  
