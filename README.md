@@ -34,7 +34,7 @@ srand (time(NULL));
 ```
 ### Metodos
 
-``` c++v
+``` c++
 void tirar();
 int generar_numero();
 int* devolver_numeros();
