@@ -4,7 +4,7 @@
 El tablero es un vector que contiene 11 arrays de tamaño ` t = x2+1  ` 
 osea  
 ``` c++
-vector<int*> tablero
+vector<int*> tablero;
 ```
 Para identificar cada ficha
 - **0**: Vacío
@@ -16,15 +16,15 @@ Para identificar cada ficha
 ``` c++
 tablero* retornar_tablero();
 int* retornar_columna(int columna);
-int mover_ficha(int jugador_id,int movimiento_1,movimiento_2)
+int mover_ficha(int jugador_id,int movimiento_1,movimiento_2);
 // mover ficha retorna cuantos puntos gana en esa tirada,
 // en caso de no coronar ninguna ficha retorna 0  
-int traducir_codigo(int ficha)
+int traducir_codigo(int ficha);
 // traducir codigo debe retorna la truduccion de la cada codigo
 // de ficha a un id de jugador
 // la ficha 6 es del jugador 2
-bool tiene_movimientos(int* movimientos,int jugador_id)
-void perder_turno(int jugador_id)
+bool tiene_movimientos(int* movimientos,int jugador_id);
+void perder_turno(int jugador_id);
 ```
 ## Dados
 La clase dados debe tener una semilla de devolver la sumas 
@@ -35,10 +35,10 @@ srand (time(NULL));
 ### Metodos
 
 ``` c++v
-void tirar()
-int generar_numero()
-int* devolver_numeros()
-int+ devolver_sumas()
+void tirar();
+int generar_numero();
+int* devolver_numeros();
+int+ devolver_sumas();
 // primeras 3 sumas son las generales y las otras 3 son
 // del capitan
 ```
@@ -46,11 +46,11 @@ int+ devolver_sumas()
 ## Jugador
 La clase del jugador debe guardar la información básica del jugador tal como
 ``` c++
-int Id
-int Puntos
-int guardianes_restantes
-int exploradore 
-string nombre 
+int Id;
+int Puntos;
+int guardianes_restantes;
+int exploradore;
+string nombre;
 // no es muy necesario , puede ser omitido pero debe tenerse en 
 // cuenta con la parte de guardado y carga
 ```
@@ -102,16 +102,16 @@ int main() {
 
 ### Metodos
 ``` c++
-bool* juego_activo
+bool* juego_activo;
 void referenciar_estado(bool* estado){
-	juego_activo = estado
+	juego_activo = estado;
 }
 
-void imprimir_tablero(tablero* tablero)
-void imprimir_turno(int turno)
-void mostrar_tirada(int* tirada)
-int consultar_eleccion()
-bool continuar_turno()
+void imprimir_tablero(tablero* tablero);
+void imprimir_turno(int turno);
+void mostrar_tirada(int* tirada);
+int consultar_eleccion();
+bool continuar_turno();
 
 // en caso de consultar o continuar turno reciba una X 
 // 'juego_activo' debe tomar una valor de False
