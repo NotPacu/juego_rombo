@@ -10,7 +10,7 @@ private:
 
 public:
     Dados() {
-        srand(time(0)); // Semilla para la generación de números aleatorios5
+        srand(time(0)); // Semilla para la generación de números aleatorios
     }
 
     // Método para lanzar los dados
@@ -33,10 +33,12 @@ public:
     // Método para devolver las sumas posibles
     int* devolver_sumas() {
         static int sumas[6];
+        
         // Sumas con el dado del capitán -> con dados[0]
         sumas[0] = dados[0] + dados[1];
         sumas[1] = dados[0] + dados[2];
         sumas[2] = dados[0] + dados[3];
+        
         // Sumas sin el dado del capitán -> sin dados[0]
         sumas[3] = dados[1] + dados[2];
         sumas[4] = dados[1] + dados[3];
