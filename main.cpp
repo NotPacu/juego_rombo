@@ -1,6 +1,7 @@
-#include "jugador.h"
 
+#include <iostream>
 
 int main() {
-	Jugador n = Jugador();
+
+	return 1;
 }
