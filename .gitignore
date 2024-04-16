@@ -5,3 +5,5 @@
 /.vs
 /.vscode
 /main.exe
+/*.exe
+/.*
