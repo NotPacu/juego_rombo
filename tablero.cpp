@@ -13,6 +13,26 @@ si es negativo no está confirmado
 #define ro "\033[31m"
 #define rs "\033[0m"
 
+/*
+Documetando y trauducido por IA
+si algo lean el codigo o me preguntan
+Att: jero
+
+Tablero(int numero_jugadores): Este es el constructor de la clase Tablero. Inicializa el tablero de juego con el número especificado de jugadores.
+int traducir_codigo(int ficha): Este método traduce un código dado en una pieza de juego correspondiente.
+bool tiene_movimientos(int *movimientos, int jugador_id): Este método verifica si el jugador con el ID dado tiene movimientos disponibles.
+void perder_turno(int jugador_id): Este método marca el final del turno de un jugador, indicando que ha perdido el turno.
+void cerrar_turno(int jugador_id): Este método marca el final del turno de un jugador, indicando que ha ganado el turno.
+void imprimir_tablero(): Este método imprime el estado actual del tablero de juego.
+int *movimientos_capitan(int jugador_id): Este método devuelve una serie de movimientos posibles para un capitán de un jugador determinado.
+int *movimientos_explorador(int jugador_id): Este método devuelve una matriz de movimientos posibles para un explorador de un jugador determinado.
+int mover_explorador(int jugador_id, int columna): este método mueve un explorador de un jugador determinado a una columna específica.
+La clase también incluye varios métodos privados, como mover_ficha_c, que se utiliza para mover una pieza del juego. La clase tiene varias variables privadas,
+incluyendo casiilas_bloqueadas que es una matriz que indica celdas bloqueadas, movimientos_cap y movimientos_exp que son matrices utilizadas para almacenar 
+posibles movimientos de capitanes y exploradores respectivamente, y acciones que es una matriz utilizada para almacenar acciones. La clase también tiene
+varias variables públicas, incluido size, que es una matriz utilizada para almacenar el tamaño del tablero de juego, numero_jugadores, que es el número
+de jugadores en el juego, tablero y tablero_bac, que son vectores utilizados para almacenar los estados actual y de respaldo de el tablero de juego.
+*/
 class Tablero
 {
 private:
@@ -36,7 +56,7 @@ public:
     int traducir_codigo(int ficha);
     bool tiene_movimientos(int *movimientos, int jugador_id);
     void perder_turno(int jugador_id);
-    void cerrar_turno(int jugaodr_id);
+    void cerrar_turno(int jugador_id);
     void imprimir_tablero();
 
     int *movimientos_capitan(int jugador_id);
@@ -47,6 +67,31 @@ public:
     // att: jero
 };
 
+void Tablero::cerrar_turno(int jugador_id)
+{
+    for (int i = 0; i < 11; i++)
+    {
+        for (int j = 0; j < size[i]; j++)
+        {
+            if (traducir_codigo(tablero[i][j]) == jugador_id)
+            {
+                tablero[i][j] = jugador_id + 8;
+                tablero_bac[i][j] = tablero[i][j];
+            }
+        }
+    }
+}
+
+void Tablero::perder_turno(int jugador_id)
+{
+    for (int i = 0; i < 11; i++)
+    {
+        for (int j = 0; j < size[i]; j++)
+        {
+            tablero[i][j] = tablero_bac[i][j];
+        }
+    }
+}
 int Tablero::traducir_codigo(int cod)
 {
     cod = abs(cod);
@@ -121,7 +166,8 @@ int Tablero::mover_explorador(int jugador_id, int columna)
     }
     for (int fila = 0; fila <= size[columna]; fila++)
     {
-        if (fila >= size[columna]){
+        if (fila >= size[columna])
+        {
             return 1;
         }
         if (tablero[columna][fila] == 0)
@@ -129,7 +175,6 @@ int Tablero::mover_explorador(int jugador_id, int columna)
             tablero[columna][fila] = jugador_id;
             return 0;
         }
-
     }
     return -1;
 }
@@ -186,7 +231,7 @@ void Tablero::imprimir_tablero()
         }
         std::cout << "\n";
     }
-    /*
+
     std::cout << ro << "tablero copia\n";
     for (int i = 0; i < tab; i++)
     {
@@ -196,23 +241,25 @@ void Tablero::imprimir_tablero()
         }
         std::cout << "\n";
     }
-    */
+
     std::cout << "ESTO NO ES PARA GRAFICAR SOLO PARA AYUDAR A ENCONTRAR BUGS O DEPURAR , NO USEN ESTO EN LA VERSION FINAL" << rs << "\n";
 }
+
+int main()
+{
+    return 0;
+}
+/*
 int main()
 {
     Tablero t(4);
 
-    t.tablero[1][4] = 0;
-    t.tablero[1][3] = 10;
-    t.tablero[1][2] = 1;
-    t.tablero[1][1] = 10;
-    t.tablero[1][0] = 10;
-
-
     std::cout << t.mover_explorador(1, 1) << std::endl;
-
+    t.cerrar_turno(1);
     t.imprimir_tablero();
-
+    std::cout << t.mover_explorador(1, 1) << std::endl;
+    t.perder_turno(1);
+    t.imprimir_tablero();
     return 2;
 }
+*/
