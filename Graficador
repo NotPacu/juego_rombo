@@ -2,7 +2,7 @@
 #include <vector>
 
 
-class carta{
+class graficador{
     public:
     //El codigo de jero debe estar definido antes de esto, besos.
         void imprimir_tablero(Tablero* tablero){
