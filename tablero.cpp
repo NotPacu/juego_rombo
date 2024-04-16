@@ -42,10 +42,7 @@ private:
     int movimientos_cap[11];
     int movimientos_exp[11];
 
-    int mover_ficha_c(int jugador_id, int movimiento, int ficha_movil);
-
 public:
-    int acciones[12];
     int size[tab];
     int numero_jugadores;
     std::vector<int *> tablero;
@@ -54,7 +51,6 @@ public:
     Tablero(int numero_jugadores);
 
     int traducir_codigo(int ficha);
-    bool tiene_movimientos(int *movimientos, int jugador_id);
     void perder_turno(int jugador_id);
     void cerrar_turno(int jugador_id);
     void imprimir_tablero();
@@ -81,7 +77,6 @@ void Tablero::cerrar_turno(int jugador_id)
         }
     }
 }
-
 void Tablero::perder_turno(int jugador_id)
 {
     for (int i = 0; i < 11; i++)
@@ -219,7 +214,6 @@ Tablero::Tablero(int numero_jugadores)
         casiilas_bloqueadas[i] = 0;
     }
 }
-
 void Tablero::imprimir_tablero()
 {
     std::cout << "\n";
@@ -245,21 +239,16 @@ void Tablero::imprimir_tablero()
     std::cout << "ESTO NO ES PARA GRAFICAR SOLO PARA AYUDAR A ENCONTRAR BUGS O DEPURAR , NO USEN ESTO EN LA VERSION FINAL" << rs << "\n";
 }
 
+/*
 int main()
 {
     return 0;
 }
-/*
+*/
 int main()
 {
     Tablero t(4);
 
-    std::cout << t.mover_explorador(1, 1) << std::endl;
-    t.cerrar_turno(1);
     t.imprimir_tablero();
-    std::cout << t.mover_explorador(1, 1) << std::endl;
-    t.perder_turno(1);
-    t.imprimir_tablero();
-    return 2;
+    return 1111111111111;
 }
-*/
