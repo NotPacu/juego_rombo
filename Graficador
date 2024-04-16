@@ -1,0 +1,165 @@
+#include <iostream>
+#include <vector>
+
+
+class carta{
+    public:
+    //El codigo de jero debe estar definido antes de esto, besos.
+        void imprimir_tablero(Tablero* tablero){
+            std::cout << "\033[97m";
+            for (int i = 0; i < tablero->tab; i++) {
+                for (int j = 0; j < tablero->size[i]; j++) {
+                    std::cout << tablero->tablero[i][j] << " ";
+                }
+            std::cout << std::endl; 
+            }
+            std::cout << "\033[0m";
+            
+        }
+        /*
+        0: Vacío
+        1, 2, 3, 4: Fichas de jugadores 1, 2, 3, y 4 respectivamente.
+        5, 6, 7, 8: Fichas de capitanes 1, 2, 3, y 4 respectivamente.
+        9, 10, 11, 12: Fichas de guardianes 1, 2, 3, y 4 respectivamente.
+        13, 14, 15, 16: Fichas coronadas 1, 2, 3, y 4 respectivamente.
+        */
+        void graficador_tablero(Tablero* tablero) {
+            std::cout << "Jugador 1: rojo, Jugador 2: azul, Jugador 3: verde, Jugador 4: amarillo" << std::endl;
+            for (int i = 0; i < tablero->tab; i++) {
+                for (int j = 0; j < tablero->size[i]; j++) {
+                    int ficha = tablero->tablero[i][j];
+                    if (ficha == 0) {
+                        std::cout << "0 ";
+                    } else {
+                        std::string color;
+                        switch (ficha) {
+                            case 1:
+                            case 9:
+                            case 13:
+                                color = "\033[31m"; // Rojo fichas jugador 1
+                                break;
+                            case 5:
+                                color = "\033[91m"; // Rojo claro guardian 1
+                                break;
+                            case 2:
+                            case 10:
+                            case 14:
+                                color = "\033[34m"; // Azul jugador 2
+                                break;
+                            case 6:
+                                color = "\033[94m"; // azul claro guardian 2
+                                break;
+                            case 3:
+                            case 11:
+                            case 15:
+                                color = "\033[32m"; // Verde jugador 3
+                                break;
+                            case 7:
+                                color = "\033[92m"; // verde claro guardian 3
+                                break;
+                            case 4:
+                            case 12:
+                            case 16:
+                                color = "\033[33m"; // Amarillo jugador 4
+                                break;
+                            case 8:
+                                color = "\033[93m"; // Amarillo claro guardian 4
+                                break;
+                            default:
+                                color = "\033[0m"; // Color predeterminado
+                                break;
+                        }
+                        std::cout << color << ficha << " \033[0m"; // Restaurar color predeterminado
+                    }
+                }
+                std::cout << std::endl; 
+            }
+        }
+    
+        
+        void imprimir_turno(int turno){
+            std::string color;
+                switch (turno) {
+                    case 1:
+                        color = "\033[31m"; // Rojo
+                        std::cout << color << "Es el turno del jugador 1" << "\033[0m" << std::endl; 
+                        break;
+                    case 2:
+                        color = "\033[34m"; // Azul
+                        std::cout << color << "Es el turno del jugador 2" << "\033[0m" << std::endl; 
+                        break;
+                    case 3:
+                        color = "\033[32m"; // Verde
+                        std::cout << color << "Es el turno del jugador 3" << "\033[0m" << std::endl; 
+                        break;
+                    case 4:
+                        color = "\033[33m"; // Amarillo
+                        std::cout << color << "Es el turno del jugador 4" << "\033[0m" << std::endl;
+                        break;
+                    default:
+                        std::cout << "Turno inválido" << std::endl;
+                        break;
+                }
+            
+        }
+        
+        //Antes deben estar definidos los dados
+        void mostrar_tirada(int* tirada){
+            std::string color;
+            std::cout << "Resultados de la tirada:" << std::endl;
+            
+            color = "\033[35m"; //Magenta purpura
+            
+            std::cout << "Con el dado del capitan " << tirada[0] << std::endl;
+            std::cout << "Con el dado del capitan " << tirada[1] << std::endl;
+            std::cout << "Con el dado del capitan " << tirada[2] << std::endl;
+            
+            color = "\033[95m"; //Magenta claro
+            
+            std::cout << "Sin el dado del capitan " << tirada[3] << std::endl;
+            std::cout << "Sin el dado del capitan " << tirada[4] << std::endl;
+            std::cout << "Sin el dado del capitan " << tirada[5] << std::endl;
+        }
+        
+        int continuar_jugando() {
+            char opcion;
+            std::cout << "¿Deseas continuar jugando? (S/N): ";
+            std::cin >> opcion;
+            if (opcion == 'S' || opcion == 's'){
+                return 1;
+            }
+            else{
+                return 0;  
+            }
+        }
+
+};
+
+/*
+int main()
+{
+    //main de jero por aqui, muak muak
+    Tablero tablero(4); 
+    for (int i = 0; i < tablero.tab; i++) {
+        for (int j = 0; j < tablero.size[i]; j++) {
+            tablero.tablero[i][j] = (i + 1) * 10 + (j + 1);
+        }
+    }
+
+    graficador graficador;
+
+    graficador.imprimir_tablero(&tablero);
+    graficador.graficador_tablero(&tablero);
+    graficador.imprimir_turno(2);//mandar numero de turno
+    
+    //mandarle el apuntador de las sumas de los dados
+    graficador.mostrar_tirada(int* tirada);
+    
+    int t = continuar_jugando();
+    while(t=1){
+        //turno de x jugador
+    }
+    
+    return 0;
+}
+*/
