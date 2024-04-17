@@ -2,51 +2,77 @@
 #include <vector>
 #include <string>
 
+/*   AGREGAR estos metodos a la clase tablero 
+void colocar_ficha(int fila, int columna, int jugador_id) {
+    tablero[fila][columna] = jugador_id;
+    }
+
+    int obtener_valor_casilla(int fila, int columna) const {
+        return tablero[fila][columna];
+    }
+*/
 
 class graficador{
     public:
-    //El codigo de jero debe estar definido antes de esto, besos.
-        #include <iostream>
-
-        void imprimir_rombo(int n) {
-            int mitad = (n + 1) / 2; // Mitad
-        
-            // Imprimir la parte superior del rombo
-            std::cout << ""\033[36m";
-            for (int i = 1; i <= mitad; ++i) {
-                // Vacios
-                for (int j = 1; j <= mitad - i; ++j) {
-                    std::cout << " ";
-                }
-                // Casillas
-                for (int k = 1; k <= 2 * i - 1; ++k) {
-                    std::cout << "0";
-                }
-                std::cout << std::endl;
-            }
-        
-            // Imprimir la parte inferior del rombo
-            for (int i = mitad - 1; i >= 1; --i) {
-                // Vacios
-                for (int j = 1; j <= mitad - i; ++j) {
-                    std::cout << " ";
-                }
-                // Casillas
-                for (int k = 1; k <= 2 * i - 1; ++k) {
-                    std::cout << "0";
-                }
-                std::cout << "\033[0m";
-                std::cout << std::endl;
+    void imprimir_rombo(const Tablero& tablero) {
+    int mitad = 7; // Calcular la mitad del rombo
+    
+    // Mitad arriba
+    int numCasillasVerticales = 1; 
+    for (int i = 1; i <= (mitad-1); ++i) {
+        // Espacios a la izquierda
+        for (int j = mitad - i; j > 0; --j) {
+            std::cout << " ";
+        }
+        // Casillas verticales
+        for (int k = 0; k < numCasillasVerticales; ++k) {
+            int valor = tablero.obtener_valor_casilla(i, k);
+            if (valor != 0) {
+                std::cout << valor; // Mostrar el valor de la ficha si hay una ficha en esta posición
+            } else {
+                std::cout << "0"; // Si no hay ficha, mostrar un espacio vacío
             }
         }
+        std::cout << std::endl;
+        numCasillasVerticales += 2; 
+    }
 
-        /*
-        0: Vacío
-        1, 2, 3, 4: Fichas de jugadores 1, 2, 3, y 4 respectivamente.
-        5, 6, 7, 8: Fichas de capitanes 1, 2, 3, y 4 respectivamente.
-        9, 10, 11, 12: Fichas de guardianes 1, 2, 3, y 4 respectivamente.
-        13, 14, 15, 16: Fichas coronadas 1, 2, 3, y 4 respectivamente.
-        */
+    // Mitad
+    // Espacios a la izquierda
+    for (int j = 0; j < 1; ++j) {
+        std::cout << " ";
+    }
+    // Casillas verticales
+    for (int k = 0; k < 11; ++k) {
+        int valor = tablero.obtener_valor_casilla(mitad, k);
+        if (valor != 0) {
+            std::cout << valor; // Mostrar el valor de la ficha si hay una ficha en esta posición
+        } else {
+            std::cout << "0"; // Si no hay ficha, mostrar un espacio vacío
+        }
+    }  
+    std::cout << std::endl;
+    
+    // Mitad abajo
+    for (int i = mitad - 1; i >= 1; --i) {
+        // Espacios a la izquierda
+        for (int j = 0; j < mitad - i; ++j) {
+            std::cout << " ";
+        }
+        // Casillas verticales
+        for (int k = 0; k < (numCasillasVerticales-2); ++k) {
+            int valor = tablero.obtener_valor_casilla(i, k);
+            if (valor != 0) {
+                std::cout << valor; // Mostrar el valor de la ficha si hay una ficha en esta posición
+            } else {
+                std::cout << "0"; // Si no hay ficha, mostrar un espacio vacío
+            }
+        }
+        std::cout << std::endl;
+        numCasillasVerticales -= 2; 
+    }
+}
+
         void graficador_tablero(Tablero* tablero) {
             std::cout << "Jugador 1: rojo, Jugador 2: azul, Jugador 3: verde, Jugador 4: amarillo" << std::endl;
             for (int i = 0; i < tablero->tab; i++) {
@@ -191,12 +217,11 @@ class graficador{
 int main()
 {
     //main de jero por aqui, muak muak
+    Tablero tablero(4); 
 
     graficador graficador;
 
-    int ancho = 11;
-
-    imprimir_rombo(ancho);
+    imprimir_rombo(tablero);
     graficador.graficador_tablero(&tablero);
     graficador.imprimir_turno(2);//mandar numero de turno
     
