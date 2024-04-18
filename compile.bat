@@ -1,1 +1,1 @@
-g++ main.cpp tablero.cpp Graficador.cpp jugador.cpp menu.cpp registrador.cpp -o Main
+g++ main.cpp tablero.cpp graficador.cpp jugador.cpp menu.cpp registrador.cpp -o Main
