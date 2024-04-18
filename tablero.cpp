@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "headers/tablero.h"
 /*
 0: Vacío
 1, 2, 3, 4: Fichas de jugadores 1, 2, 3, y 4 respectivamente.
@@ -33,35 +34,7 @@ posibles movimientos de capitanes y exploradores respectivamente, y acciones que
 varias variables públicas, incluido size, que es una matriz utilizada para almacenar el tamaño del tablero de juego, numero_jugadores, que es el número
 de jugadores en el juego, tablero y tablero_bac, que son vectores utilizados para almacenar los estados actual y de respaldo de el tablero de juego.
 */
-class Tablero
-{
-private:
-    static const int tab = 11;
 
-    int casiilas_bloqueadas[44];
-    int movimientos_cap[11];
-    int movimientos_exp[11];
-
-public:
-    int size[tab];
-    int numero_jugadores;
-    std::vector<int *> tablero;
-    std::vector<int *> tablero_bac;
-
-    Tablero(int numero_jugadores);
-
-    int traducir_codigo(int ficha);
-    void perder_turno(int jugador_id);
-    void cerrar_turno(int jugador_id);
-    void imprimir_tablero();
-
-    int *movimientos_capitan(int jugador_id);
-    int *movimientos_explorador(int jugador_id);
-    int mover_explorador(int jugador_id, int columna);
-    // no me hago responsable si le ponen un numero que no está permitido
-    // para eso le hice funciones que descartan los movimientos ilegales
-    // att: jero
-};
 
 void Tablero::cerrar_turno(int jugador_id)
 {
@@ -245,10 +218,3 @@ int main()
     return 0;
 }
 */
-int main()
-{
-    Tablero t(4);
-
-    t.imprimir_tablero();
-    return 1111111111111;
-}

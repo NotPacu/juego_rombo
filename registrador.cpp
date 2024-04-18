@@ -3,23 +3,17 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "headers/registrador.h"
 
-using namespace std;
 
-class Registrador
+
+
+bool Registrador::guardar_partida(const std::string& nombre_archivo, const std::vector<int*>& tablero, const int* size)
 {
-public:
-    // Funciones para guardar y cargar la partida
-    static bool guardar_partida(const string& nombre_archivo, const vector<int*>& tablero, const int* size);
-    static bool cargar_partida(const string& nombre_archivo, vector<int*>& tablero, int* size);
-};
-
-bool Registrador::guardar_partida(const string& nombre_archivo, const vector<int*>& tablero, const int* size)
-{
-    ofstream archivo(nombre_archivo);
+    std::ofstream archivo(nombre_archivo);
     if (!archivo)
     {
-        cerr << "Error al abrir el archivo para guardar la partida.\n";
+        std::cerr << "Error al abrir el archivo para guardar la partida.\n";
         return false;
     }
 
@@ -28,7 +22,7 @@ bool Registrador::guardar_partida(const string& nombre_archivo, const vector<int
     {
         archivo << size[i] << " ";
     }
-    archivo << endl;
+    archivo << std::endl;
 
     // Serializar el estado del tablero y escribirlo en el archivo
     for (int i = 0; i < 11; ++i)
@@ -43,12 +37,12 @@ bool Registrador::guardar_partida(const string& nombre_archivo, const vector<int
     return true;
 }
 
-bool Registrador::cargar_partida(const string& nombre_archivo, vector<int*>& tablero, int* size)
+bool Registrador::cargar_partida(const std::string& nombre_archivo, std::vector<int*>& tablero, int* size)
 {
-    ifstream archivo(nombre_archivo);
+    std::ifstream archivo(nombre_archivo);
     if (!archivo)
     {
-        cerr << "Error al abrir el archivo para cargar la partida.\n";
+        std::cerr << "Error al abrir el archivo para cargar la partida.\n";
         return false;
     }
 
