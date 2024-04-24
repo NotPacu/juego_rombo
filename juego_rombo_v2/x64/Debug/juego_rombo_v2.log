@@ -1,0 +1,17 @@
+﻿  Dados.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Dados.cpp")
+  
+  Graficador.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Graficador.cpp")
+  
+  main.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "main.cpp")
+  
+  tablero.cpp
+  Ejecutando análisis del código para C/C++...
+  Generando código...
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Graficador.cpp(89,1): warning C4715: 'Graficador::traducir_ficha': no todas las rutas de acceso de control devuelven un valor
+  juego_rombo_v2.vcxproj -> C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\x64\Debug\juego_rombo_v2.exe

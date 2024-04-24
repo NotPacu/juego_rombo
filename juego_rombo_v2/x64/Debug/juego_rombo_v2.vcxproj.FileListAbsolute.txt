@@ -1,0 +1,2 @@
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\x64\Debug\juego_rombo_v2.exe.lastcodeanalysissucceeded
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\juego_rombo_v2\x64\Debug\NativeCodeAnalysis.read.1.tlog

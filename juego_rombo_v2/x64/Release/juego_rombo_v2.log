@@ -1,0 +1,24 @@
+﻿  Graficador.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Graficador.cpp")
+  
+  Jugador.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "Jugador.cpp")
+  
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Jugador.cpp(136,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Jugador.cpp(135,146): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Jugador.cpp(135,110): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  main.cpp
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\Dados.h(15,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\main.cpp(67,41): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\main.cpp(89,41): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\main.cpp(58,26): warning C4101: 'e': variable local sin referencia
+  Generando código
+  1 of 768 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  juego_rombo_v2.vcxproj -> C:\Users\jerog\source\repos\juego_rombo\juego_rombo_v2\x64\Release\juego_rombo_v2.exe

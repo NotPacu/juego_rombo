@@ -1,0 +1,59 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33520.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/jerog/source/repos/juego_rombo/juego_rombo_v2/graficador.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "fa9f855cecf856c7e32b5f23ee93c0f7ad64acf851f0ee11496c82a598943e45"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/jerog/source/repos/juego_rombo/juego_rombo_v2/graficador.h"
+          },
+          "hashes": {
+            "sha-256": "48ee32423c7e6a7c50a5f64c57f7d513b5baedd5c0d630764bff562a91527aca"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/jerog/source/repos/juego_rombo/juego_rombo_v2/tablero.h"
+          },
+          "hashes": {
+            "sha-256": "1a6b4f013fb3d19cb35443d7798da647ba6c5fefcd657d117b719ec10eaa36b1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/jerog/source/repos/juego_rombo/juego_rombo_v2/dados.h"
+          },
+          "hashes": {
+            "sha-256": "23b1f4000cbfa4689791b9aa150cb1f74afeb5b4debc4a2e22de19a8e7c03040"
+          }
+        }
+      ]
+    }
+  ]
+}
