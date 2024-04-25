@@ -275,8 +275,8 @@ void Tablero::cerrar_turno(int jugador_id)
 			if (traducir_codigo(tab[i][j]) == jugador_id && tab[i][j] != 0) {
 
 				tab[i][j] = jugador_id+8;
-				tab_back[i][j] = jugador_id+8;
 			}
+				tab_back[i][j] = tab[i][j];
 		}
 	}
 }
