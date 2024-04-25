@@ -27,6 +27,8 @@ void SaveAndLoader::load(std::string filename, int* turno, Tablero* tablero, std
 	load_board(tablero, infile);
 	load_names(nombres, infile);
 	turno[0] = load_turno(infile);
+
+	tablero->reload();
 	infile.close();
 }
 
