@@ -225,7 +225,7 @@ int Jugador::turno() {
 
 	graficador->graficar_tablero(tab->retornar_tablero(), colores[(pj.id - 1) * 3], colores[(pj.id - 1) * 3 + 1], colores[(pj.id - 1) * 3 + 2]);
 	int slc = graficador->selecionar_accion();
-	puntos = 10;
+	
 	if (puntos >= 5) {
 		graficador->limpiar_pantalla();
 		graficador->pantalla_win(pj.nombre);
