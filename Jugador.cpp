@@ -135,8 +135,6 @@ int Jugador::turno() {
 	graficador->print_completo(u8"Turno del jugador " + std::to_string(pj.id), 83, 14, colores[(pj.id - 1) * 3] * 4.5, colores[(pj.id - 1) * 3 + 1] * 4.5
 		, colores[(pj.id - 1) * 3 + 2] * 4.5);
 
-	std::cout << "exploradores: " << exploradores << std::endl;
-	std::cout << "puntos: " << puntos << std::endl;
 	graficador->graficar_tablero(tab->retornar_tablero(), colores[(pj.id - 1) * 3], colores[(pj.id - 1) * 3 + 1], colores[(pj.id - 1) * 3 + 2]);
 
 	dados->tirar_dados();
