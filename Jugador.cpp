@@ -135,13 +135,13 @@ int Jugador::turno() {
 	graficador->print_completo(u8"Turno del jugador " + std::to_string(pj.id), 83, 14, colores[(pj.id - 1) * 3] * 4.5, colores[(pj.id - 1) * 3 + 1] * 4.5
 		, colores[(pj.id - 1) * 3 + 2] * 4.5);
 
-
+	std::cout << "exploradores: " << exploradores << std::endl;
+	std::cout << "puntos: " << puntos << std::endl;
 	graficador->graficar_tablero(tab->retornar_tablero(), colores[(pj.id - 1) * 3], colores[(pj.id - 1) * 3 + 1], colores[(pj.id - 1) * 3 + 2]);
 
 	dados->tirar_dados();
 	dados->calc_sumas();
-	std::cout << "exploradores: " << exploradores << std::endl;
-	std::cout << "puntos: " << puntos << std::endl;
+
 	graficador->graficar_dados(*dados);
 	descartar_lista();
 
@@ -175,30 +175,32 @@ int Jugador::turno() {
 
 	if (cap2) {
 		fichas_pos[mov2 - 2] = 2;
-	}
+	}else {
 
-	else {
-		if (mov2 != mov1) {
-			if (fichas_pos[mov2 - 2] == 0 || fichas_pos[mov2 - 2] == 3) {
-				exploradores--;
-			}
-		}
-		else {
+		if (fichas_pos[mov2 - 2] == 0 || fichas_pos[mov2 - 2] == 3) {
 			exploradores--;
 		}
+
 		fichas_pos[mov2 - 2] = 1;
 	}
 
 	if (cap1) {
-	}
-	else {
+		fichas_pos[mov1 - 2] = 2;
+	}else {
 		if (fichas_pos[mov1 - 2] == 0 || fichas_pos[mov1 - 2] == 3) {
-
 			exploradores--;
 		}
+
 		fichas_pos[mov1 - 2] = 1;
 	}
 
+
+
+	if (!cap1 && !cap2) {
+		if (mov1 == mov2) {
+			exploradores++;
+		}
+	}
 
 	int p1 = tab->mover_ficha(pj.id, mov1 - 2, cap1);
 	int p2 = tab->mover_ficha(pj.id, mov2 - 2, cap2);
@@ -208,7 +210,7 @@ int Jugador::turno() {
 			capitan_activado = false;
 		}
 		else {
-			exploradores++;
+			//exploradores++;
 		}
 	}
 
@@ -217,15 +219,18 @@ int Jugador::turno() {
 			capitan_activado = false;
 		}
 		else {
-			exploradores++;
+			//exploradores++;
 		}
 	}
 
-	puntos += p1 + p2;
 
+	std::cout << "exploradores: " << exploradores << std::endl;
+	std::cout << "puntos: " << puntos << std::endl;
 	graficador->graficar_tablero(tab->retornar_tablero(), colores[(pj.id - 1) * 3], colores[(pj.id - 1) * 3 + 1], colores[(pj.id - 1) * 3 + 2]);
-	int slc = graficador->selecionar_accion();
 	
+	int slc = graficador->selecionar_accion();
+
+
 	if (puntos >= 5) {
 		graficador->limpiar_pantalla();
 		graficador->pantalla_win(pj.nombre);
@@ -250,12 +255,12 @@ int Jugador::turno() {
 
 
 void Jugador::reload() {
-	int **tab_ = tab->retornar_tablero();
+	int** tab_ = tab->retornar_tablero();
 
-	
+
 	for (int i = 0; i < 11; i++) {
 		for (int j = 0; j < tab->size[i]; j++) {
-			if (tab_[i][j] == pj.id+8) {
+			if (tab_[i][j] == pj.id + 8) {
 				fichas_pos[i] = 3;
 				break;
 			}
