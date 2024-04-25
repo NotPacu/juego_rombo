@@ -228,7 +228,7 @@ int Jugador::turno() {
 	
 	int slc = graficador->selecionar_accion();
 
-
+	puntos += p1 + p2;
 	if (puntos >= 5) {
 		graficador->limpiar_pantalla();
 		graficador->pantalla_win(pj.nombre);
